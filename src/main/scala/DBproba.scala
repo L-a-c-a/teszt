@@ -7,7 +7,7 @@ class DBproba extends DB
   override def list = db
   override def set(kulcs: String, ertek: String) = db += kulcs -> Array(ertek)  //nem jó, a tömböt ki kell egészíteni!
   override def remove(kulcs: String) = db -= kulcs
-  override def close() = {}
+  override def close() = { println ("DBproba csukva")}
 }
 
 object DBproba
