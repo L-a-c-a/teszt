@@ -1,11 +1,11 @@
-import scala.collection.mutable.Map
+//import scala.collection.mutable.Map
 import scala.util.Using
 
 object CRUD extends App
 {
   def dolog() = "megvan"
 
-  def printList (lista: Map[String, Array[String]]) =
+  def printList (lista: DB.listTip /*Map[String, Array[String]]*/) =
   {
     lista.map { case (k, v) => println(s"$k -> [${v.mkString(",")}]") }
   }
