@@ -18,7 +18,7 @@ object CRUD extends App
     args(0).toLowerCase match
     {
       case "list" => printList(db.list)
-      case "get" => println(s"${args(1)} -> ${db.get(args(1)).mkString(",")}")
+      case "get" => println(s"${args(1)} -> [${db.get(args(1)).mkString(",")}]")
       case "set" => 
       {
         db.set(args(1), args(2))

@@ -2,7 +2,7 @@
 
 trait DB extends AutoCloseable
 {
-  def get (kulcs: String): Array[String]  //nem Option, hanem üres tömb, ha nincs a kulcs
+  def get (kulcs: String): Set[String]  //nem Option, hanem üres tömb, ha nincs a kulcs
   def set (kulcs: String, ertek: String): Unit
   def remove (kulcs: String): Unit
   def list : DB.listTip  //Map[String, Array[String]]  //mutable Map!
@@ -10,7 +10,7 @@ trait DB extends AutoCloseable
 
 object DB
 {
-  type listTip = scala.collection.mutable.Map[String, Array[String]]
+  type listTip = scala.collection.mutable.Map[String, Set[String]]
 
   val tipus = "PROBA"
 
