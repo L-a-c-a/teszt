@@ -1,8 +1,6 @@
-//import scala.collection.mutable.Map
-
 trait DB extends AutoCloseable
 {
-  def get (kulcs: String): Set[String]  //nem Option, hanem üres tömb, ha nincs a kulcs
+  def get (kulcs: String): Set[String]  //nem Option, hanem üres halmaz, ha nincs a kulcs
   def set (kulcs: String, ertek: String): Unit
   def remove (kulcs: String): Unit
   def list : DB.listTip  //Map[String, Array[String]]  //mutable Map!

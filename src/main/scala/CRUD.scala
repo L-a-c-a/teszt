@@ -1,20 +1,14 @@
-//import scala.collection.mutable.Map
 import scala.util.Using
 
 object CRUD extends App
 {
-  def dolog() = "megvan"
-
   def printList (lista: DB.listTip /*Map[String, Array[String]]*/) =
   {
     lista.map { case (k, v) => println(s"$k -> [${v.mkString(",")}]") }
   }
 
-  //var db = DB.apply
-  Using.resource(DB.apply)   //.resource kell, Using nem elég, mert ha más kivétel dobódik (pl. túlindexelés), az nem látszik
+  Using.resource(DB.apply)   //.resource kell, Using nem elég, mert ha más kivétel dobódik (pl. túlindexelés), az elnyelődik
   { db =>
-    //println(db.list)
-    //db.list.map { case (k, v) => println(s"$k -> ${v.foldLeft("[")(_+","+_)}]") }
     args(0).toLowerCase match
     {
       case "list" => printList(db.list)

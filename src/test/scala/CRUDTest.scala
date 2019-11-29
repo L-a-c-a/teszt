@@ -1,7 +1,7 @@
 class CRUDTest extends org.scalatest.FunSuite
 {
-  test ("CRUD.dolog")
+  test("serial")
   {
-    assert(CRUD.dolog == "megvan")
+    assert (Serialization.deserialise(Serialization.serialise("asdasd")) == "asdasd")
   }
 }
