@@ -8,3 +8,6 @@ lazy val root = (project in file(".")).
   )
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
+
+//ez feltételezi az sbt-assembly plugin meglétét:
+assemblyJarName in assembly := "tesztfeladat.jar"
