@@ -21,13 +21,14 @@ class DBproba extends DB
   }
 
   //init
-  db = deserialise(Source.fromFile(serFileName).getLines.mkString).asInstanceOf[DB.listTip]
+  try { db = deserialise(Source.fromFile(serFileName).getLines.mkString).asInstanceOf[DB.listTip] }
+  catch { case x: java.io.FileNotFoundException => {} }
   
 }
 
 object DBproba
 {
-  var db:DB.listTip =
+  var db:DB.listTip =  //ha nincs a fájl
   (
   scala.collection.mutable.Map
     ( "k1" -> Set("v1", "v2", "v3")

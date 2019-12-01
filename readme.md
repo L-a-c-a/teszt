@@ -5,14 +5,14 @@ De bármilyen adatbázis implementálható: meg kell írni, mondjuk, a DBora osz
 
 Futtatás:
 
-`sbt run parancs [param]...`
+`sbt run parancs [param...]`
 
 vagy, `sbt assembly` után:
 
-`java -jar tesztfeladat.jar parancs [param]...`
+`java -jar tesztfeladat.jar parancs [param...]`
 
 parancs ::= {`get|set|remove|list`}   
-param ::= kulcs [érték]...
+param... ::= kulcs [érték]...
 
 Teszt:
 
