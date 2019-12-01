@@ -6,10 +6,12 @@ import Serialization._
 
 class DBproba extends DB
 {
-  override def get(kulcs: String) = db(kulcs)
+  override def get(kulcs: String) = db.get(kulcs) getOrElse Set[String]()
   override def list = db
-  override def set(kulcs: String, ertek: String) = db += kulcs -> Set(ertek)  //nem jó, a tömböt^^^halmazt ki kell egészíteni!
+  //override def set(kulcs: String, ertek: String) = db += kulcs -> Set(ertek)  //nem jó, a halmazt ki kell egészíteni!
+  override def set(kulcs: String, ertek: Set[String]) = db(kulcs) = get(kulcs) ++ ertek
   override def remove(kulcs: String) = db -= kulcs
+  override def remove(kulcs: String, ertek: Set[String]) = db(kulcs) = get(kulcs) -- ertek
   override def close() = 
   {
     val writer = new PrintWriter(new File(serFileName))

@@ -2,3 +2,5 @@ target
 scalavista-vscode.log
 .vscode/commands.json
 dbser.txt
+.bloop
+.metals

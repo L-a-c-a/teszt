@@ -2,30 +2,30 @@ import scala.util.Using
 
 object CRUD extends App
 {
-  def printList (lista: DB.listTip /*Map[String, Array[String]]*/) =
+  def listOut (lista: DB.listTip) =
   {
-    lista.map { case (k, v) => println(s"$k -> [${v.mkString(",")}]") }
+    lista.map { case (k, v) => s"$k -> [${v.mkString(",")}]" } .mkString("\n")
   }
 
   Using.resource(DB.apply)   //.resource kell, Using nem elég, mert ha más kivétel dobódik (pl. túlindexelés), az elnyelődik
   { db =>
-    args(0).toLowerCase match
+    var out = args(0).toLowerCase match
     {
-      case "list" => printList(db.list)
-      case "get" => println(s"${args(1)} -> [${db.get(args(1)).mkString(",")}]")
+      case "list" => listOut(db.list)
+      case "get" => s"${args(1)} -> [${db.get(args(1)).mkString(",")}]"
       case "set" => 
       {
-        db.set(args(1), args(2))
-        printList(db.list)
+        db.set(args(1), args.drop(2).toSet)
+        listOut(db.list)
       }
       case "remove" => 
       {
-        db.remove(args(1))
-        printList(db.list)
+        if (args.size==2) db.remove(args(1)) else db.remove(args(1), args.drop(2).toSet)
+        listOut(db.list)
       }
-      case _ => println("arg1: get|set|remove|list !")
+      case _ => "arg1: get|set|remove|list !"
     }
-    
+    println(out)
   }
 
 }
