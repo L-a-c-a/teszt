@@ -11,13 +11,15 @@ object DB
 {
   type listTip = scala.collection.mutable.Map[String, Set[String]]
 
-  val tipus = "PROBA"
+  //val tipus = "PROBA"
+  val tipus = "ORA"
 
   def apply =
   {
     tipus match
     {
       case "PROBA" => new DBproba
+      case "ORA" => new DBora
     }
   }
 }

@@ -97,6 +97,7 @@ class CRUDTest extends FunSpec
         db.set("kUj", Set("v2", "v3"))
         db.remove("kUj", Set("v2", "vNincs"))
         assert(db.get("kUj") == Set("v1", "v3", "v4", "v5"))
+        db.remove("kUj")
       }
     }
 

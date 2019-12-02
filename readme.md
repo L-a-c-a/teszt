@@ -1,7 +1,9 @@
 ## Tesztfeladat
 
-Kulcs--érték párok kezelése, egyszerű fájlba-perzisztálással, egy neten talált szerializációs eljárással.  
-De bármilyen adatbázis implementálható: meg kell írni, mondjuk, a DBora osztályt (ami `extends DB`), és `DB.tipus`-t átírni.
+Kulcs--érték párok kezelése.  
+Kétféle perzisztencia van megvalósítva, amelyet a `DB.tipus` beállításával lehet kiválasztani:  
+* `PROBA` egy egyszerű fájlba-perzisztálás, egy neten talált szerializációs eljárással,
+* `ORA` mögött Oracle adatbázis van.
 
 Futtatás:
 
