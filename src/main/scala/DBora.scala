@@ -34,7 +34,8 @@ class DBora extends DB
     {
       var k = rs.getString("kulcs")
       var v = rs.getString("ertek")
-      ret(k) = (ret.get(k) getOrElse Set[String]()) + v
+      //ret(k) = (ret.get(k) getOrElse Set[String]()) + v
+      ret(k) = ret.get(k).toSet.flatten + v
     }
     conn.close
     ret
